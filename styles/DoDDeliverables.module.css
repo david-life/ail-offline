@@ -1,0 +1,319 @@
+/* Main container layout */
+.container {
+  margin-top: 1.5rem; /* Creates space below the banner */
+  display: flex; /* Enables flexible layout for child elements */
+  flex-direction: column; /* Stacks child elements vertically */
+  height: 100%; /* Fills the available height */
+  padding: 0; /* Removes extra space around the container */
+  box-sizing: border-box; /* Ensures padding is included in element's size */
+  overflow-y: auto; /* Enables vertical scrolling */
+}
+
+/* Content layout */
+.content {
+  display: flex; /* Aligns child elements in a row by default */
+  flex: 1; /* Allows the content to grow and fill available space */
+  overflow-y: auto; /* Enables scrolling for vertical content overflow */
+  transition: margin-left 0.3s ease; /* Smooth animation for sidebar toggle */
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px; /* Fixed width for the sidebar */
+  padding: 16px; /* Adds inner spacing */
+  background-color: #fffff; /* Light gray background for sidebar */
+  box-shadow: 2px 0 4px rgb(0, 0, 0, 0.1); /* Subtle shadow effect */
+  flex-shrink: 0; /* Prevents the sidebar from shrinking */
+  transition: transform 0.3s ease; /* Smooth toggle animation */
+  color: #545454; /* Default text color for sidebar items */
+  margin: 0; /* Removes default margin */
+  padding-left: 40px; /* Adds consistent alignment with list items */
+  font-size: 14px; /* Adjust the font size */
+  color: #545454; /* Title color */
+  
+  z-index: 200; /* Ensures the sidebar sits above content */
+}
+/* Sidebar toggle button styles */
+.sidebar ul li {
+  
+  list-style: none; /* Removes bullets from the list */
+  text-align: left; /* Aligns text to the left */
+  position: relative;
+  padding-left: 0px; /* Matches the sidebar title */
+  font-family: "helvetica", sans-serifserif; /* Sets the font family */
+  color: #545454;
+  font-size: 14px; /* Adjust text size */
+  cursor: pointer;
+  margin-bottom: 8px; /* Adds spacing (leading) between category titles */
+  color: #545454; /* Default text color for sidebar items */
+}
+
+
+
+/* Hover effect for sidebar text */
+.sidebar ul li:hover {
+  color: #0004e3; /* Blue color on hover */
+  font-weight: bold; /* Optional: make text bold on hover */
+}
+/* Hidden sidebar styles */
+.hiddenSidebar {
+  transform: translateX(-100%); /* Moves the sidebar off-screen */
+  position: absolute; /* Prevents it from taking up space */
+}
+
+/* Visible sidebar styles */
+.visibleSidebar {
+  transform: translateX(0); /* Brings the sidebar into view */
+  position: relative; /* Keeps it within normal document flow */
+}
+
+/* Grid container for cards */
+.gridContainer {
+  
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  padding: 16px; /* Adds spacing around the cards */
+  box-sizing: border-box; /* Includes padding in size calculations */
+  overflow-y: auto; /* Allows scrolling for overflowing card content */
+}
+/* Card styles */
+.card {
+  border: 0.2px solid #ebebeb; /* Grey border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Inner spacing */
+  background-color: #fff; /* White background */
+  color: #545454; /* Text color inside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  width: 100%; /* Ensures the card fills its container */
+  margin-bottom: 16px; /* Adds breathing room between cards */
+}
+
+
+
+.cardImage {
+  width: 100%; /* Makes the image span the full width of the card */
+  height: auto; /* Maintains the aspect ratio */
+  border-radius: 8px; /* Matches the card's rounded corners */
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+}
+
+
+.card:hover {
+  box-shadow: 0 4px 8px rgb(0, 4, 227, 0.2); /* Adds a shadow on hover */
+}
+
+/* Search bar layout */
+.searchBar {
+  margin-top: 50px; /* Adds spacing around the search bar */
+  display: flex; /* Aligns input and button horizontally */
+  justify-content: center; /* Centers the search bar in its container */
+  align-items: center; /* Vertically aligns content */
+  padding: 16px; /* Adds spacing inside the search bar container */
+  background-color: #fff; /* White background */
+  border-bottom: 1px solid #ddd; /* Separator line below the search bar */
+  padding-top: 40px; /* Removes top padding */
+}
+
+/* Search input field */
+.searchBar input {
+  flex-grow: 1; /* Expands to fill available space */
+  max-width: 500px; /* Optional: restricts width of the input */
+  padding: 8px 12px; /* Inner spacing for text */
+  font-size: 14px; /* Sets text size */
+  border: none; /* Removes all borders */
+  border-bottom: 2px solid #ccc; /* Adds only a bottom border */
+  outline: none; /* Removes default focus outline */
+  transition: border-color 0.3s ease; /* Smooth color transition on focus */
+}
+
+.searchBar input:focus {
+  border-bottom: 1px solid #0004e3; /* Highlight bottom border on focus */
+}
+
+/* Search button styles */
+.searchButton {
+  display: flex; /* Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 48px; /* Set button width */
+  height: 48px; /* Set button height */
+  border-radius: 50%; /* Circular button */
+  background-color: transparent; /* Transparent background */
+  cursor: pointer; /* Indicates clickable button */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+  padding: 0; /* Remove extra padding */
+  border: none; /* No border */
+}
+
+/* Search icon with animation */
+.searchIcon {
+  width: 38px; /* Size of the search icon */
+  height: 38px; /* Proportional height for the icon */
+  object-fit: contain; /* Ensures the icon fits inside its container */
+}
+
+.searchButton:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  animation: pulseBlue 2.5s infinite; /* Pulsing animation on hover */
+}
+
+@keyframes pulseBlue {
+  0% {
+    box-shadow: 0 0 0 rgba(0, 0, 255, 0.3); /* No shadow at start */
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.7); /* Bright pulse at midpoint */
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(0, 0, 255, 0.5); /* Returns to no shadow */
+  }
+}
+
+/* Toggle button */
+.toggleButton {
+  position: fixed; /* Sticks to a fixed position on the screen */
+  top: 50%; /* Positions the button vertically at 60% of the viewport */
+  transform: translateY(-50%); /* Centers the button vertically */
+  left: -32px; /* Partially hides the button */
+  background-color: #d6d6d6; /* Gray background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  width: 40px; /* Button width */
+  height: 44px; /* Button height */
+  font-size: 22px; /* Text size */
+  display: flex; /* Centers the button content */
+  align-items: center;
+  justify-content: center;
+  z-index: 300; /* Keeps the button above other content */
+  transition: left 0.3s ease, background-color 0.3s ease, width 0.3s ease; /* Smooth animations for hover effects */
+}
+
+.toggleButton:hover {
+  left: 0; /* Fully reveals the button */
+  background-color: #0004e3; /* Blue background on hover */
+  padding-left: 0px; /* Adds padding to the left */
+}
+
+/* Loading screen container */
+.loadingContainer {
+  display: flex; /* Centers the loading content */
+  justify-content: center; /* Aligns content horizontally */
+  align-items: center; /* Aligns content vertically */
+  height: 100vh; /* Fills the entire viewport */
+  background-color: #fff; /* White background */
+}
+
+/* Loading spinner */
+.loadingWheel {
+  width: 48px; /* Diameter of the spinner */
+  height: 48px;
+  margin-right: 16px; /* Adds spacing between the spinner and text */
+  border: 6px solid rgba(243, 243, 243, 0.95); /* Subtle light gray border */
+  border-top: 6px solid #0004e3; /* Blue top border for spinner effect */
+  border-radius: 50%; /* Makes it circular */
+  animation: spin 0.8s linear infinite; /* Continuous spinning animation */
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); /* Starting position */
+  }
+  to {
+    transform: rotate(360deg); /* Full rotation */
+  }
+}
+.collapseArrow {
+  background: none; /* Removes background */
+  border: none; /* Removes borders */
+  color: #545454; /* Sets the plus/minus color to grey */
+  cursor: pointer; /* Adds a pointer cursor on hover */
+  font-size: 18px; /* Adjusts the symbol size */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth hover effects */
+}
+
+.collapseArrow:hover {
+  color: #0004e3; /* Changes the color of the symbol on hover */
+}
+/* Floating Toolbar */
+/* Toolbar */
+.toolbar {
+  position: 10; /* Floating toolbar */
+  top: 15%; /* 20% from top of the viewport */
+  left: 0; /* Align to the left edge of the viewport */
+  width: 100%; /* Full width */
+  display: flex; /* Horizontal alignment */
+  justify-content: right; /* Center the buttons */
+  gap: 4px; /* Space between buttons */
+  z-index: 400; /* Float above other content */
+  pointer-events: none; /* Prevent blocking clicks below */
+  padding-top: 10px; /* Add some space above the buttons */
+}
+
+.toolbarButton {
+  display: flex; /* Align icon and text horizontally */
+  align-items: center; /* Center content vertically */
+  background: none; /* No background */
+  border: none; /* No border */
+  color: #000; /* Text color */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  font-size: 10px; /* Font size */
+  pointer-events: auto; /* Enable interactivity */
+}
+
+.icon {
+  width: 16px; /* Icon width */
+  height: 16px; /* Icon height */
+  margin-right: 2px; /* Space between icon and text */
+}
+
+.listContainer {
+  display: block; /* Stacks records vertically */
+}
+/* Style for image in the card */
+.clickable-image {
+  cursor: zoom-in; /* Show magnifying glass cursor */
+  width: 100%;
+  height: auto;
+}
+
+/* Modal overlay for the expanded view */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Above all other elements */
+}
+
+/* Modal content container */
+.modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* Magnified image */
+.magnified-image {
+  width: 100%; /* Adjust to fit modal */
+  height: auto; /* Maintain aspect ratio */
+  cursor: zoom-out; /* Indicates click to close */
+}
+
+/* Close button */
+.close-modal-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}

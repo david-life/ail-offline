@@ -1,0 +1,93 @@
+.header {
+  position: fixed; /* Makes the header float at the top of the viewport */
+  top: 15; /* Aligns the header to the top of the viewport */
+  left: 0; /* Aligns the header to the left edge */
+  width: 100%; /* Spans the full width of the viewport */
+  height: 77px; /* Height of the header */
+  display: flex; /* Aligns items horizontally */
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Center items vertically */
+  padding: 0 24px; /* Padding inside the header */
+  background-color: #fff; /* White background for visibility */
+  z-index: 500; /* Ensures it’s above other page elements */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+ 
+  
+}
+
+.logo {
+  display: fixed;
+  align-items: center;
+  
+}
+
+.nav {
+  flex: 1;
+  margin-left: 32px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  margin-right: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navItem:hover {
+  color: #000;
+}
+
+.active {
+  font-weight: bold;
+  color: #000;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+}
+
+.loginButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.loginButton:hover {
+  background-color: #0056b3;
+}
+.logoContainer {
+  width: 120px; /* Define container width */
+  height: 60px; /* Define container height */
+  position: relative; /* Required for Next.js Image layout control */
+  overflow: hidden; /* Prevent the logo from spilling out */
+  display: flex; /* Optional: Center the logo */
+  justify-content: center; /* Centers logo horizontally */
+  align-items: center; /* Centers logo vertically */
+}
+
+@media (max-width: 768px) {
+  .logoContainer {
+    width: 80px; /* Smaller logo for smaller screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .logoContainer {
+    width: 150px; /* Larger logo for larger screens */
+  }
+}

@@ -1,0 +1,42 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* CUI Banner */
+.cui-banner {
+  background-color: #00b400; /* Thin green banner */
+  color: #FFFFFF; /* White text for readability */
+  padding: 0.4rem 0; /* Vertical spacing */
+  text-align: center; /* Center-align text */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Modern font */
+  font-size: .9rem; /* Standard size */
+  position: fixed; /* Always visible at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Keep above all elements */
+  border-bottom: none; /* Remove any unintended border/line */
+  box-shadow: none; /* Ensure there’s no visual separator */
+}
+
+@media (max-width: 768px) {
+  .cui-banner {
+    font-size: 0.875rem; /* Slightly smaller for mobile */
+    padding: 0.25rem 0; /* Adjust padding for smaller screens */
+  }
+}
+
+
